@@ -6,7 +6,7 @@ function changeToWhite() {
 
 let dictionary = {
     fetchWord: function (word) {
-        let myRequest = new Request("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
+        let myRequest = new Request(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
          fetch(myRequest)
             .then(function(resp) {
                 if (resp.ok) {
