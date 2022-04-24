@@ -9,7 +9,7 @@ let dictionary = {
         let myRequest = new Request("https://api.dictionaryapi.dev/api/v2/entries/en/" + word)
          fetch(myRequest)
             .then(function(resp) {
-                if (response.ok) {
+                if (resp.ok) {
                     return resp.json();
                 } else {
                     alert("Word " + word + " Not Found\n" + "Try using an actual word (Currently countries are not considered words)")
@@ -18,6 +18,7 @@ let dictionary = {
             .then((data) => this.displayWord(data))
         .catch(function(err) {
             alert("Word " + word + " Not Found\n" + "Try using an actual word (Currently countries are not considered words)")
+             console.log(err)
          })
     },
     displayWord: function (data) {
