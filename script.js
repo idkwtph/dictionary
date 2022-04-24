@@ -7,19 +7,18 @@ function changeToWhite() {
 let dictionary = {
     fetchWord: function (word) {
         let myRequest = new Request("http://api.dictionaryapi.dev/api/v2/entries/en/" + word)
-        let checkFetch = function (response) {
-            if (!response.ok) {
-                alert("Word " + word + " Not Found\n" + "Try using an actual word (Currently countries are not considered words)")
-                //throw Error(response.status + " - " + response.statusText + " - " + response.url)
-            }
-            return response
-        }
-        fetch(myRequest)
-            .then(checkFetch)
+         fetch(myRequest)
             .then(function(resp) {
-                return resp.json();
+                if (response.ok) {
+                    return resp.json();
+                } else {
+                    alert("Word " + word + " Not Found\n" + "Try using an actual word (Currently countries are not considered words)")
+                }
             })
             .then((data) => this.displayWord(data))
+        .catch(function(err) {
+            alert("Word " + word + " Not Found\n" + "Try using an actual word (Currently countries are not considered words)")
+         })
     },
     displayWord: function (data) {
             const { title } = data || null
