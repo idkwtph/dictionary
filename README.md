@@ -1,4 +1,4 @@
-# dictionary
+# Dictionary
 
 This is a website I created all by myself.
 
